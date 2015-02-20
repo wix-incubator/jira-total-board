@@ -1,0 +1,11 @@
+{
+  "appName": {
+    "message": "jira-trello-bord (by Amit Shvil)",
+    "description": "Add total story point for your jira scrum 1.Total on bord 2.Total of each columns "
+
+  },
+  "appDescription": {
+    "message": "points count for jira bord (by Amit Shvil)",
+    "description": "Add total story point for your jira scrum 1.Total on bord 2.Total of each columns "
+  }
+}
