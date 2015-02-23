@@ -3,6 +3,9 @@ temp
 .tmp
 dist
 .sass-cache
+.idea
 app/bower_components
 test/bower_components
 package
+.DS_Store
+.idea/workspace.xml

@@ -1,7 +1,8 @@
 $( document ).ready(function() {
   console.log( "ready!" );
-
+  setInterval(calc,3000);
   calc();
+
   function calc(){
     var totalBord = 0;
     var columnsId = buildColums();
@@ -9,11 +10,11 @@ $( document ).ready(function() {
       var totalCol = sumCol(columnsId[i]);
       totalBord = totalBord + totalCol;
       var element =  $('.ghx-column[data-id='+columnsId[i]+']');
-      var totalEle = createTotalDisplay(totalCol);
-      element.append(totalEle);
+      var totalEle = createTotalDisplay(totalCol,element);
+      //element.append(totalEle);
     }
-    var totalEle = createTotalDisplay(totalBord);
-    $('#ghx-board-name').append(totalEle)
+    var totalEle = createTotalDisplay(totalBord,$('#ghx-board-name'));
+    //$('#ghx-board-name').append(totalEle)
   }
 
   function sumCol(colId){
@@ -43,8 +44,14 @@ $( document ).ready(function() {
     return columnsIds;
   }
   // Utils
-  function createTotalDisplay(value){
-    var total = $("<span class='aui-badge' style='font-size: 14px'/>")
+  function createTotalDisplay(value,parent){
+    var element = parent.find('.aui-badge');
+    if(element.length > 0 ){
+      total = $(element[0]);
+    }else{
+      var total = $("<span class='aui-badge' style='font-size: 14px'/>")
+      parent.append(total);
+    }
     total.text(value);
     return total;
   }
