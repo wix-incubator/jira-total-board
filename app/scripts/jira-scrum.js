@@ -2,7 +2,6 @@
   'use strict';
   $( document ).ready(function() {
 
-    calc();
     function calc(){
       var totalBord = 0;
       var columnsId = buildColums();
@@ -10,10 +9,10 @@
         var totalCol = sumCol(columnsId[i]);
         totalBord = totalBord + totalCol;
         var element =  $('.ghx-column[data-id='+columnsId[i]+']');
-        var totalEle = createTotalDisplay(totalCol);
+        var totalEle = createTotalDisplay(totalCol,element);
         element.append(totalEle);
       }
-      var totalEle = createTotalDisplay(totalBord);
+      var totalEle = createTotalDisplay(totalBord,$('#ghx-board-name'));
       $('#ghx-board-name').append(totalEle)
     }
 
@@ -42,14 +41,21 @@
       return columnsIds;
     }
     // Utils
-    function createTotalDisplay(value){
-      var total = $('<span/>').addClass('aui-badge').css('font-size', '14px');
+    function createTotalDisplay(value,parent){
+      var total;
+      var element = parent.find('.aui-badge');
+      if(element.length > 0 ){
+        total = $(element[0]);
+      }else {
+        total = $ ('<span/>').addClass ('aui-badge').css ('font-size', '14px');
+      }
       total.text(value);
       return total;
     }
     function isNumeric(n) {
       return $.isNumeric(n);
     }
-
+    setInterval(calc,3000);
+    calc();
   });  
 })(window, $);
