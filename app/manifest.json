@@ -1,19 +1,16 @@
 {
   "name": "__MSG_appName__",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "manifest_version": 2,
   "description": "__MSG_appDescription__",
   "icons": {
     "16": "images/Red_Point.png",
     "128": "images/Red_Point.png"
   },
-  "permissions": [
-    "tabs","https://jira.wixpress.com/"
-  ],
   "default_locale": "en",
   "content_scripts": [
     {
-      "matches": ["https://jira.wixpress.com/*"],
+      "matches": ["*://*.jira/*"],
       "js": ["scripts/jquery.js","scripts/jira-scrum.js"]
     }
   ]

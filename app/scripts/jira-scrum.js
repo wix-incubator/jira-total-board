@@ -4,7 +4,7 @@
 
     function calc(){
       var totalBord = 0;
-      var columnsId = buildColums();
+      var columnsId = buildColumns();
       for(var i = 0, len = columnsId.length; i< len; ++i){
         var totalCol = sumCol(columnsId[i]);
         totalBord = totalBord + totalCol;
@@ -25,12 +25,11 @@
             total += parseFloat (this.innerText);
           }
         })
-
       });
       return total;
     }
 
-    function buildColums(){
+    function buildColumns(){
       var columnsIds = [];
       $('.ghx-column').each( function () {
         var dataId = $(this).data('column-id');
@@ -57,5 +56,5 @@
     }
     setInterval(calc,3000);
     calc();
-  });  
+  });
 })(window, $);
