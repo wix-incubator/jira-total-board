@@ -50,7 +50,7 @@
       } else {
         total = $('<span/>').addClass('aui-badge').css('font-size', '14px');
       }
-      total.text(value);
+      total.text(value.toFixed(1));
       return total;
     }
 
