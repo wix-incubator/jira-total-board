@@ -41,7 +41,7 @@
       return columnsIds;
     }
 
-    // Utils
+    // for counting all the points in the board
     function createTotalDisplay(value, parent) {
       var total;
       var element = parent.find('.aui-badge');
