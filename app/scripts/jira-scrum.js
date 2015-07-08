@@ -4,16 +4,16 @@
   $(document).ready(function () {
 
     function calc() {
-      var totalBord = 0;
+      var totalBoard = 0;
       var columnsId = buildColumns(); // get a list of columns id
       for (var i = 0, len = columnsId.length; i < len; ++i) { // loop on column
         var totalCol = sumCol(columnsId[i]); //run on all the curd in the column
         var element = $('.ghx-column[data-id=' + columnsId[i] + ']'); //getting the column header
         var totalEle = createTotalDisplay(totalCol, element); // adding that number to the header
         element.append(totalEle); // adding it to do dom
-        totalBord = totalBord + totalCol; //sum the total of the bord
+        totalBoard = totalBoard + totalCol; //sum the total of the Board
       }
-      var totalEle = createTotalDisplay(totalBord, $('#ghx-board-name')); //adding the total of the bord
+      var totalEle = createTotalDisplay(totalBoard, $('#ghx-board-name')); //adding the total of the Board
       $('#ghx-board-name').append(totalEle);
     }
 
@@ -32,7 +32,7 @@
 
     function buildColumns() {
       var columnsIds = [];
-      $('.ghx-column').each(function () { // search for all the column id in the bord
+      $('.ghx-column').each(function () { // search for all the column id in the Board
         var dataId = $(this).data('column-id');
         if (columnsIds.indexOf(dataId) === -1 && dataId !== 'undefined') {
           columnsIds.push(dataId);
