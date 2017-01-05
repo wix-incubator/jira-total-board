@@ -157,17 +157,17 @@ module.exports = function (grunt) {
       css: ['<%= config.dist %>/styles/{,*/}*.css']
     },
 
-    // The following *-min tasks produce minifies files in the dist folder
-    imagemin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= config.app %>/images',
-          src: '{,*/}*.{gif,jpeg,jpg,png}',
-          dest: '<%= config.dist %>/images'
-        }]
-      }
-    },
+    //// The following *-min tasks produce minifies files in the dist folder
+    //imagemin: {
+    //  dist: {
+    //    files: [{
+    //      expand: true,
+    //      cwd: '<%= config.app %>/images',
+    //      src: '{,*/}*.{gif,jpeg,jpg,png}',
+    //      dest: '<%= config.dist %>/images'
+    //    }]
+    //  }
+    //},
 
     svgmin: {
       dist: {
@@ -247,16 +247,16 @@ module.exports = function (grunt) {
     },
 
     // Run some tasks in parallel to speed up build process
-    concurrent: {
-      chrome: [
-      ],
-      dist: [
-        'imagemin',
-        'svgmin'
-      ],
-      test: [
-      ]
-    },
+    // concurrent: {
+    //   chrome: [
+    //   ],
+    //   //dist: [
+    //   //  'imagemin',
+    //   //  'svgmin'
+    //   //],
+    //   test: [
+    //   ]
+    // },
 
     // Auto buildnumber, exclude debug files. smart builds that event pages
     chromeManifest: {
@@ -312,10 +312,10 @@ module.exports = function (grunt) {
     'clean:dist',
     'chromeManifest:dist',
     'useminPrepare',
-    'concurrent:dist',
+    //'concurrent:dist',
     // No UI feature selected, cssmin task will be commented
     // 'cssmin',
-    'concat',
+    //'concat',
     'uglify',
     'copy',
     'usemin',
@@ -323,8 +323,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
-    'jshint',
-    'test',
     'build'
   ]);
 };

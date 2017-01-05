@@ -1,6 +1,8 @@
 {
   "name": "jira-trello-bord",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "clipboard": "^1.5.16"
+  },
   "devDependencies": {}
 }
